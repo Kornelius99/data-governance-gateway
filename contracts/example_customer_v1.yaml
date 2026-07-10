@@ -1,0 +1,21 @@
+# Example data contract for a 'customer' record.
+# version and owner are metadata for humans; 'schema' is what's enforced.
+version: 1
+owner: analytics-team
+description: Contract for customer records ingested from the CRM system.
+
+schema:
+  type: object
+  required: [name, email, age]
+  additionalProperties: true
+  properties:
+    name:
+      type: string
+      minLength: 1
+    email:
+      type: string
+      format: email
+    age:
+      type: integer
+      minimum: 0
+      maximum: 130
